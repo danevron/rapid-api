@@ -3,11 +3,9 @@
 }
 
 .App-header {
-  background-color: darkslategrey;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
 }
 
 .welcome {
@@ -15,12 +13,7 @@
 }
 
 .logout {
-  height: 35px;
-  color: #fff;
   margin-left: auto;
-  margin-right: 10px;
-  background-color: black;
-  border: none;
-  border-radius: 3px;
+  margin-right: 20px;
   cursor: pointer;
 }

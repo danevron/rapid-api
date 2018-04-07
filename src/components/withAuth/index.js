@@ -30,10 +30,23 @@ export default function withAuth(AuthComponent) {
       }
     }
 
+    async getProfile() {
+      try {
+        const profile = await Auth.getProfile()
+        this.setState({
+          user: profile
+        })
+      }
+      catch(err){
+        Auth.logout()
+        this.props.history.replace('/login')
+      }
+    }
+
     render() {
       if (this.state.user) {
         return (
-          <AuthComponent history={this.props.history} user={this.state.user} />
+          <AuthComponent onProfileChange={this.getProfile.bind(this)} history={this.props.history} user={this.state.user} />
         )
       }
       else {

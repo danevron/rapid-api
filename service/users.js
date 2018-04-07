@@ -5,8 +5,8 @@ let users = [
     name: 'dan',
     password: 'dan982',
     profile_image_location: {
-      x: 0,
-      y: 0
+      top: 300,
+      left: 300
     }
   },
   {
@@ -15,8 +15,8 @@ let users = [
     name: 'test',
     password: 'test',
     profile_image_location: {
-      x: 0,
-      y: 0
+      top: 300,
+      left: 300
     }
   }
 ];

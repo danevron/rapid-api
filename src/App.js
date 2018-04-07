@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Home from './components/Home'
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import './App.css'
 
 import AuthService from './services/AuthService';
@@ -12,9 +14,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h2 className="welcome">Welcome {this.props.user.username}</h2>
-          <button className="logout" type="button" onClick={this.handleLogout.bind(this)}>Logout</button>
+          <h2 className="logout" onClick={this.handleLogout.bind(this)}>Logout</h2>
         </header>
-        <Home {...this.props}/>
+        <Home onLocationChange={this.updateLocation.bind(this)} {...this.props}/>
       </div>
     );
   }
@@ -23,6 +25,11 @@ class App extends Component {
     Auth.logout()
     this.props.history.replace('/login');
   }
+
+  updateLocation(top, left) {
+    Auth.updateProfile({ profile_image_location: { top: top, left: left }});
+    this.props.onProfileChange();
+  }
 }
 
-export default withAuth(App);
+export default DragDropContext(HTML5Backend)(withAuth(App));

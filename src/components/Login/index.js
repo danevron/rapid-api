@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AuthService from '../../services/AuthService';
 import './index.css';
 
-class Login extends Component {
+export default class Login extends Component {
   constructor(){
     super();
     this.state = {}
@@ -37,7 +37,7 @@ class Login extends Component {
               type="password"
               onChange={this.handleChange}
             />
-            <button className="form-submit" onClick={this.handleFormSubmit}>Primary</button>
+            <button className="form-submit" onClick={this.handleFormSubmit}>Submit</button>
           </form>
         </div>
       </div>
@@ -63,9 +63,6 @@ class Login extends Component {
         .catch(err =>{
           alert(err);
         })
-      }
     }
-
+  }
 }
-
-export default Login;

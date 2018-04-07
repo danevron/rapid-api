@@ -20,6 +20,25 @@ export default class AuthService {
     })
   }
 
+  async getProfile() {
+    let userResponse = null;
+    try {
+      userResponse = await this.fetch(`${this.domain}/profile`);
+    } catch (e) {
+    }
+
+    return userResponse;
+  }
+
+  updateProfile(user) {
+    return this.fetch(`${this.domain}/profile`, {
+      method: 'POST',
+      body: JSON.stringify(user)
+    }).then(res => {
+      return Promise.resolve(res);
+    })
+  }
+
   loggedIn() {
     const token = this.getToken()
     return !!token && !this.isTokenExpired(token)
@@ -49,16 +68,6 @@ export default class AuthService {
 
   logout() {
     localStorage.removeItem('id_token');
-  }
-
-  async getProfile() {
-    let userResponse = null;
-    try {
-      userResponse = await this.fetch(`${this.domain}/profile`);
-    } catch (e) {
-    }
-
-    return userResponse;
   }
 
   fetch(url, options) {

@@ -1,0 +1,7 @@
+.profile-image {
+  border-radius: 50%;
+	position: absolute;
+  border: 1px solid black;
+  padding: 12px;
+	cursor: move;
+}

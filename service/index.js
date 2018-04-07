@@ -57,7 +57,7 @@ app.post("/login", function(req, res) {
 });
 
 app.post("/profile", passport.authenticate('jwt', { session: false }), function(req, res){
-  req.user.profile_image_location = req.body.location
+  req.user.profile_image_location = req.body.profile_image_location
   res.status(200).json(_.omit(req.user,['password']));
 });
 
