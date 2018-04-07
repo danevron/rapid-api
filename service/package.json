@@ -1,0 +1,19 @@
+{
+  "name": "login-service",
+  "version": "1.0.0",
+  "description": "simple authentication & users api",
+  "main": "index.js",
+  "author": "dan evron",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
+    "lodash": "^4.17.5",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0"
+  }
+}
