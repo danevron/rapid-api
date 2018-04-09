@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
-import ItemTypes from '../../ItemTypes';
+import ItemTypes from '../../DraggableItemTypes';
 import flow from 'lodash/flow';
 
 import ProfileImage from '../ProfileImage';

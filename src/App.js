@@ -5,7 +5,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import './App.css';
 
 import AuthService from './services/AuthService';
-import withAuth from './components/withAuth';
+import withAuth from './containers/withAuth';
 const Auth = new AuthService();
 
 class App extends Component {
