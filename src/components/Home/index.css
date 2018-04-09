@@ -1,5 +1,6 @@
 .drop-target {
 	position: relative;
   width: 100%;
-  min-height: 700px;
+  border: 1px solid black;
+  min-height: 1700px;
 }

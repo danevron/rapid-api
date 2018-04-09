@@ -5,7 +5,7 @@ import './index.css';
 export default class Login extends Component {
   constructor(){
     super();
-    this.state = {}
+    this.state = {};
     this.handleChange = this.handleChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.Auth = new AuthService();
@@ -37,7 +37,7 @@ export default class Login extends Component {
               type="password"
               onChange={this.handleChange}
             />
-            <button className="form-submit" onClick={this.handleFormSubmit}>Submit</button>
+            <button className="form-submit" onClick={this.handleFormSubmit}>Let me in.</button>
           </form>
         </div>
       </div>
@@ -45,11 +45,9 @@ export default class Login extends Component {
   }
 
   handleChange(e) {
-    this.setState(
-      {
-        [e.target.name]: e.target.value
-      }
-    )
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
 
   handleFormSubmit(e) {

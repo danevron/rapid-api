@@ -4,22 +4,22 @@ import ItemTypes from '../../ItemTypes';
 import flow from 'lodash/flow';
 
 import ProfileImage from '../ProfileImage';
-import './index.css'
+import './index.css';
 
 const imageTarget = {
 	drop(props, monitor, component) {
-		const item = monitor.getItem()
-		const delta = monitor.getDifferenceFromInitialOffset()
-		const left = Math.round(item.left + delta.x)
-		const top = Math.round(item.top + delta.y)
+		const item = monitor.getItem();
+		const delta = monitor.getDifferenceFromInitialOffset();
+		const left = Math.round(item.left + delta.x);
+		const top = Math.round(item.top + delta.y);
 
-		component.handleDrop(top, left)
+		component.props.onLocationChange(top, left);
 	}
 }
 
 class Home extends Component {
   render() {
-    const { connectDropTarget } = this.props
+    const { connectDropTarget } = this.props;
     const { top, left } = this.props.user.profile_image_location;
 
     return connectDropTarget((
@@ -27,10 +27,6 @@ class Home extends Component {
         <ProfileImage top={top} left={left} />
       </div>
     ));
-  }
-
-  handleDrop(top, left) {
-    this.props.onLocationChange(top, left);
   }
 }
 

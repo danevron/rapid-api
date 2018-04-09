@@ -83,10 +83,10 @@ export default class AuthService {
     return fetch(url, {
       headers,
       ...options
-    }).then(this._checkStatus).then(response => response.json())
+    }).then(this.checkStatus).then(response => response.json())
   }
 
-  _checkStatus(response) {
+  checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
       return response
     } else {

@@ -9,37 +9,28 @@ export default function withAuth(AuthComponent) {
       super();
       this.state = {
         user: null
-      }
+      };
     }
 
     async componentWillMount() {
       if (!Auth.loggedIn()) {
-        this.props.history.replace('/login')
+        this.props.history.replace('/login');
       }
       else {
-        try {
-          const profile = await Auth.getProfile()
-          this.setState({
-            user: profile
-          })
-        }
-        catch(err){
-          Auth.logout()
-          this.props.history.replace('/login')
-        }
+        this.getProfile();
       }
     }
 
     async getProfile() {
       try {
-        const profile = await Auth.getProfile()
+        const profile = await Auth.getProfile();
         this.setState({
           user: profile
-        })
+        });
       }
       catch(err){
-        Auth.logout()
-        this.props.history.replace('/login')
+        Auth.logout();
+        this.props.history.replace('/login');
       }
     }
 
@@ -47,10 +38,10 @@ export default function withAuth(AuthComponent) {
       if (this.state.user) {
         return (
           <AuthComponent onProfileChange={this.getProfile.bind(this)} history={this.props.history} user={this.state.user} />
-        )
+        );
       }
       else {
-        return null
+        return null;
       }
     }
   }

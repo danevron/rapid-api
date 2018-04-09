@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Home from './components/Home'
+import Home from './components/Home';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import './App.css'
+import './App.css';
 
 import AuthService from './services/AuthService';
 import withAuth from './components/withAuth';
@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   handleLogout() {
-    Auth.logout()
+    Auth.logout();
     this.props.history.replace('/login');
   }
 

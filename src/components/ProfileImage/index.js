@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { DragSource } from 'react-dnd';
 import ItemTypes from '../../ItemTypes';
 import flow from 'lodash/flow';
-
 import './index.css';
 
 const imageSource = {
@@ -28,6 +27,6 @@ class ProfileImage extends Component {
 
 export default flow(
   DragSource(ItemTypes.IMAGE, imageSource, (connect, monitor) => ({
-  	connectDragSource: connect.dragSource(),
+  	connectDragSource: connect.dragSource()
   }))
 )(ProfileImage);
